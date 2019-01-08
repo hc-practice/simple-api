@@ -1,0 +1,27 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "Dog Toys",
+      "author": "Heather Cherewaty",
+      "display_name": "Pro Dog Snuggler",
+      "description": "Dogs are amazing and they deserve toys!"
+    },
+    {
+      "id": "2",
+      "name": "More doggo Toys",
+      "author": "Steve Cherewaty",
+      "display_name": "Pro Dog Snuggler",
+      "description": "Dogs are amazing and they deserve toys!"
+    }
+  ],
+  "products": [
+    {
+      "id": "2",
+      "category": "Dog Toys",
+      "name": "Squeaky rubber chickum",
+      "display_name": "Robert the rubber chicken",
+      "description": "Fun to squeak!"
+    }
+  ]
+}
