@@ -1,0 +1,292 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "This is a simple API server.",
+      "version": "1.0.0",
+      "title": "Simple API",
+    },
+    "host": "localhost:3000",
+    "tags": [
+      {
+        "name": "categories",
+        "description": "Everything in categories",
+      },
+      {
+        "name": "products",
+        "description": "Everything in products"
+      },
+  
+    ],
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      "/categories": {
+        "post": {
+          "tags": [
+            "categories"
+          ],
+          "summary": "Add a new pro dog snuggler",
+  
+          "produces": [
+            "application/xml",
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Person that needs to be added to the categories",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Category"
+              }
+            }
+          ],
+          "responses": {
+            "405": {
+              "description": "Invalid input"
+            }
+          },
+        },
+        "get": {
+          "tags": [
+            "categories"
+          ],
+          "summary": "Get an existing person",
+          "description": "",
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "produces": [
+            "application/xml",
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Person that needs to be added to the category",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Category"
+              }
+            }
+          ],
+          "responses": {
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "Not found"
+            },
+            "405": {
+              "description": "Validation exception"
+            }
+          },
+        }
+      },
+        "/products": {
+        "post": {
+          "tags": [
+            "products"
+          ],
+          "summary": "Add a new dog toy",
+  
+          "produces": [
+            "application/xml",
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "A dog toy needs to be added to products",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Category"
+              }
+            }
+          ],
+          "responses": {
+            "405": {
+              "description": "Invalid input"
+            }
+          },
+        },
+        "get": {
+          "tags": [
+            "products"
+          ],
+          "summary": "Get an existing dog toy",
+          "description": "",
+          "consumes": [
+            "application/json",
+            "application/xml"
+          ],
+          "produces": [
+            "application/xml",
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Dog toy that needs to be added",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Category"
+              }
+            }
+          ],
+          "responses": {
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "Not found"
+            },
+            "405": {
+              "description": "Validation exception"
+            }
+          },
+        }
+      },
+      "/categories/findByName": {
+        "put": {
+          "tags": [
+            "categories"
+          ],
+          "summary": "Updates person",
+    
+          "operationId": "findPersonByName",
+          "produces": [
+            "application/xml",
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Category"
+                }
+              }
+            },
+            "400": {
+              "description": "Invalid status value"
+            }
+          },
+        }
+      },
+          "/products/findByName": {
+        "put": {
+          "tags": [
+            "products"
+          ],
+          "summary": "Updates toys",
+    
+          "operationId": "updateToy",
+          "produces": [
+            "application/xml",
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Category"
+                }
+              }
+            },
+            "400": {
+              "description": "Invalid status value"
+            }
+          },
+        }
+      },
+        "/products/findById": {
+        "delete": {
+          "tags": [
+            "products"
+          ],
+          "summary": "Deletes a toy",
+          "description": "",
+          "operationId": "deleteToy",
+          "produces": [
+            "application/xml",
+            "application/json"
+          ],
+          "responses": {
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "Toy not found"
+            }
+          },
+        }
+      },
+      "/categories/findById": {
+        "delete": {
+          "tags": [
+            "categories"
+          ],
+          "summary": "Deletes a person",
+          "description": "",
+          "operationId": "deletePerson",
+          "produces": [
+            "application/xml",
+            "application/json"
+          ],
+          "responses": {
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "Pet not found"
+            }
+          },
+        }
+      },
+    },
+    
+    "definitions": {
+      "Order": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Order Status",
+            "enum": [
+              "placed",
+              "approved",
+              "delivered"
+            ]
+          },
+        },
+        "xml": {
+          "name": "Order"
+        }
+      },
+      "Category": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "xml": {
+          "name": "Category"
+        }
+      },
+    },
+  }

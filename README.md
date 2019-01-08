@@ -8,9 +8,7 @@ Becca Lee
 
 
 ### Links and Resources
-
 * [repo](https://github.com/hcherewaty/simple-api)
-* [travis]()
 
 
 ### Modules
